@@ -1,0 +1,50 @@
+{
+  "name": "basketservice",
+  "version": "1.0.0",
+  "description": "API to handle all logic related with the basket",
+  "scripts": {
+    "test": "NODE_ENV=development jest",
+    "test-watch": "NODE_ENV=development jest --watch",
+    "start": "node -r dotenv/config src/server.js",
+    "lint": "esw \"src/**/*.js\" \"tests/**/*.js\"",
+    "lint-watch": "npm run lint -- -w --clear --color"
+  },
+  "husky": {
+    "hooks": {
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tassumpcao/basketservice.git"
+  },
+  "author": "Thiago Assumpcao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tassumpcao/basketservice/issues"
+  },
+  "homepage": "https://github.com/tassumpcao/basketservice#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "dotenv": "^8.2.0",
+    "elasticsearch": "^16.4.0",
+    "errors": "^0.3.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-filenames": "^1.3.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-watch": "^6.0.1",
+    "jest": "^24.9.0",
+    "node-fixtures": "0.0.1",
+    "node-mocks-http": "^1.8.0",
+    "supertest": "^4.0.2",
+    "husky": "^3.0.9"
+  }
+}
