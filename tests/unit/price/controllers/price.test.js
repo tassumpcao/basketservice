@@ -50,7 +50,8 @@ describe('Price Controller Unit Test', () => {
         expect(res.statusCode).toBe(200);
       });
     });
-
+  });
+  describe('Failure scenarios', () => {
     it('Return error for unknown products', () => {
       const requestBody = {
         items: ['Apples', 'Soup', 'Banana', 'Orange'],
@@ -133,6 +134,4 @@ describe('Price Controller Unit Test', () => {
       });
     });
   });
-  
-
 });
