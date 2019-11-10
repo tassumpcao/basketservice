@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jest/no-disabled-tests */
-describe('Price Controller Unit Test', () => {
+describe.skip('Price Controller Unit Test', () => {
   
   describe('Without discount and without conversion', () => {
 
