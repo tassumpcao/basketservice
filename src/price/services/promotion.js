@@ -4,7 +4,8 @@ const promotionClient  = require('../clients/promotion');
 module.exports = () => {
   
   const applyPromotionForProduct = (item) => {
-    const promo = promotionClient.getPromoForProduct(item);
+    
+    const promo = promotionClient().getPromoForProduct(item);
     let promoItem;
     if (promo){
       promoItem = {};
