@@ -17,7 +17,7 @@ module.exports = () => {
   };
 
   const calculatePriceForBasket = (req, res, next) => {
-    const { items, currency } = req.body;
+    const { items, curr } = req.body;
     return validaRequest(items)
       .then(async () => {
         try {
@@ -25,13 +25,13 @@ module.exports = () => {
           
           const order = await promotionService.applyDiscount(basket);
           
-          const finalOrder = await currencyService.convert(order, currency);
+          const finalOrder = await currencyService.convert(order, curr);
           
           res.status(200).json({
             subtotal: finalOrder.subtotal,
             discounts: finalOrder.discounts,
             total: finalOrder.total,
-            currency: finalOrder.currency
+            currency: curr
           });
         } catch (error) {
           if (next) next(error);
@@ -49,4 +49,4 @@ module.exports = () => {
 
 
   return { calculatePriceForBasket };
-}
+};

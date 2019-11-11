@@ -1,0 +1,34 @@
+[
+  {
+    "productName": "Apples",
+    "pcPromoDiscount": 10,
+    "vlPromoDiscount": 0,
+    "minimalQty": 0,
+    "name":"Apples Sale",
+    "priority": 1
+  },
+  {
+    "productName": "Milk",
+    "pcPromoDiscount":0,
+    "vlPromoDiscount":0.5,
+    "minimalQty": 1,
+    "name":"Milk Sale Value",
+    "priority": 2
+  },
+  {
+    "productName": "Milk",
+    "pcPromoDiscount":0.3,
+    "vlPromoDiscount":0.0,
+    "minimalQty": 1,
+    "name":"Milk Sale Pc",
+    "priority": 1
+  },
+  {
+    "productName": "Oranges",
+    "pcPromoDiscount":0.3,
+    "vlPromoDiscount":0.0,
+    "minimalQty": 3,
+    "name":"Milk Sale Pc",
+    "priority": 1
+  }
+]

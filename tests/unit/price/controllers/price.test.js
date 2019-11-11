@@ -93,7 +93,7 @@ describe('Price Controller Unit Test', () => {
       }).catch((error) => { 
         expect(error.status).toBe('400');
         expect(error.message).toBe('Missing mandatory parameters: [ items ]');
-      })
+      });
     });
 
     it('Return error for unknown exchange rate', () => {

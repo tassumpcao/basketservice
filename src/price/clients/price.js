@@ -10,5 +10,5 @@ module.exports = () => {
     if (!price) throw new errors.Http422Error(`Missing product data: ${productName}`);
     return price;
   };
-  return { getPricesByName }
+  return { getPricesByName };
 };
