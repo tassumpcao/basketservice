@@ -4,9 +4,9 @@ const currencyClient = require('../clients/currency');
 
 module.exports = () => {
   
-  const convert = (order, currency) => {
+  const convert = async (order, currency) => {
     
-    const rate = currencyClient().getRateForCurrency(currency);
+    const rate = await currencyClient().getRateForCurrency(currency);
     if (!rate){
       throw new errors.Http422Error(`Rate not found for currency: ${currency}`);
     }

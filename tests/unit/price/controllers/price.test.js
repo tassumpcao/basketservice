@@ -6,9 +6,10 @@ const basketService = require('../../../../src/price/services/basket');
 const currencyService = require('../../../../src/price/services/currency');
 const promotionService = require('../../../../src/price/services/promotion');
 
-basketService.create = jest.fn();
-currencyService.convert = jest.fn();
-promotionService.applyDiscount = jest.fn();
+jest.mock('../../../../src/price/services/basket');
+jest.mock('../../../../src/price/services/currency');
+jest.mock('../../../../src/price/services/promotion');
+
 
 describe('Price Controller Unit Test', () => {
   
@@ -17,30 +18,39 @@ describe('Price Controller Unit Test', () => {
     // eslint-disable-next-line max-statements
     it('Return totals and currency', () => {
       const requestBody = {
-        items: ['Apples', 'Soup', 'Banana'],
+        items: ['Apples Price Unit', 'Soup Price Unit', 'Banana Price Unit'],
         currency: 'USD'
       };
 
-      basketService.create.mockImplementation(async (items) => {
-        const basket = { items: [] };
-        await items.forEach((item) => {
-          basket.items.push({
-            productName: item,
-            price: 2.00
+      basketService.mockImplementation(() => {
+        const create = async (items) => {
+          const basket = { items: [] };
+          await items.forEach((item) => {
+            basket.items.push({
+              productName: item,
+              price: 2.00
+            });
           });
-        });
-        return basket;
+          return basket;
+        };
+        return { create };
       });
       
-      promotionService.applyDiscount.mockImplementation(async (basket) => {
-        const order = 
-          { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
-            total: 6.00, currency: 'USD', orderItems: basket.items };
-        return order;
+      promotionService.mockImplementation(() => {
+        const applyDiscount = (basket) => {
+          const order = 
+            { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
+              orderTotal: 6.00, currency: 'USD', orderItems: basket.items };
+          return order;
+        };
+        return { applyDiscount };
       });
       
-      currencyService.convert.mockImplementation((order) => {
-        return order;
+      currencyService.mockImplementation(() => {
+        const convert = (order) => {
+          return order;
+        };
+        return { convert };
       });
      
       const req = httpMocks.createRequest({ body: requestBody });
@@ -54,23 +64,32 @@ describe('Price Controller Unit Test', () => {
   describe('Failure scenarios', () => {
     it('Return error for unknown products', () => {
       const requestBody = {
-        items: ['Apples', 'Soup', 'Banana', 'Orange'],
+        items: ['Apples Price Unit', 'Soup', 'Banana', 'Orange'],
         currency: 'USD'
       };
 
-      basketService.create.mockImplementation(async () => {
-        throw new errors.Http422Error({ message: 'Product(s) not found:[ Orange ]' });
+      basketService.mockImplementation(async () => {
+        const create = () => {
+          throw new errors.Http422Error({ message: 'Product(s) not found:[ Orange ]' });
+        };
+        return { create };
       });
       
-      promotionService.applyDiscount.mockImplementation(async (basket) => {
-        const order = 
-          { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
-            total: 6.00, currency: 'USD', orderItems: basket.items };
-        return order;
+      promotionService.mockImplementation(() => {
+        const applyDiscount = (basket) => {
+          const order = 
+            { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
+              orderTotal: 6.00, currency: 'USD', orderItems: basket.items };
+          return order;
+        };
+        return { applyDiscount };
       });
       
-      currencyService.convert.mockImplementation((order) => {
-        return order;
+      currencyService.mockImplementation(() => {
+        const convert = (order) => {
+          return order;
+        };
+        return { convert };
       });
 
       const req = httpMocks.createRequest({ body: requestBody });
@@ -102,26 +121,35 @@ describe('Price Controller Unit Test', () => {
         currency: 'BRL'
       };
 
-      basketService.create.mockImplementation(async (items) => {
-        const basket = { items: [] };
-        await items.forEach((item) => {
-          basket.items.push({
-            productName: item,
-            price: 2.00
+      basketService.mockImplementation(() => {
+        const create = async (items) => {
+          const basket = { items: [] };
+          await items.forEach((item) => {
+            basket.items.push({
+              productName: item,
+              price: 2.00
+            });
           });
-        });
-        return basket;
+          return basket;
+        };
+        return { create };
       });
       
-      promotionService.applyDiscount.mockImplementation(async (basket) => {
-        const order = 
-          { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
-            total: 6.00, currency: 'USD', orderItems: basket.items };
-        return order;
+      promotionService.mockImplementation(() => {
+        const applyDiscount = (basket) => {
+          const order = 
+            { subtotal: 6.00, discounts: [], discountAmt: 0.0, 
+              orderTotal: 6.00, currency: 'USD', orderItems: basket.items };
+          return order;
+        };
+        return { applyDiscount };
       });
       
-      currencyService.convert.mockImplementation(() => {
-        throw new errors.Http422Error({ message: 'Currency not found:[ BRL ]' });
+      currencyService.mockImplementation(() => {
+        const convert = () => {
+          throw new errors.Http422Error({ message: 'Currency not found:[ BRL ]' });
+        };
+        return { convert };
       });
 
       const req = httpMocks.createRequest({ body: requestBody });

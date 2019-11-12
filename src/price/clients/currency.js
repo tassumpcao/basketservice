@@ -5,7 +5,7 @@ module.exports = () => {
 
   const getRateForCurrency = (currency) => {
     const supportedCurr = ['EUR', 'USD', 'GBP'];
-
+    
     if (!supportedCurr.includes(currency))
       throw new errors.Http422Error(`Currency not supported: ${currency}`);
     const url = `${process.env.CURR_API}${currency}`;

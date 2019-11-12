@@ -6,7 +6,7 @@ describe('Promotion Client Unit Test', () => {
     
     it('Return promotion for product with min quantitty elegible', async () => {
       const item = {
-        name: 'Apples',
+        name: 'Apples Promotion Unit',
         unitPrice: 2.0,
         quantity: 3
       };
@@ -18,7 +18,7 @@ describe('Promotion Client Unit Test', () => {
 
     it('Return promotion for product with min quantity elegible and more than one promotion', async () => {
       const item = {
-        name: 'Milk',
+        name: 'Milk Promotion Unit',
         unitPrice: 4.0,
         quantity: 4
       };
@@ -29,7 +29,7 @@ describe('Promotion Client Unit Test', () => {
     });
     it('Dont return promotion for product with min quantitty not elegible', async () => {
       const item = {
-        name: 'Orange',
+        name: 'Orange Promotion Unit',
         unitPrice: 2.0,
         quantity: 1
       };

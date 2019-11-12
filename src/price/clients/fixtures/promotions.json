@@ -1,6 +1,6 @@
 [
   {
-    "productName": "Apples",
+    "productName": "Apples Promotion Unit",
     "pcPromoDiscount": 10,
     "vlPromoDiscount": 0,
     "minimalQty": 0,
@@ -8,12 +8,44 @@
     "priority": 1
   },
   {
-    "productName": "Milk",
+    "productName": "Milk Promotion Unit",
     "pcPromoDiscount":0,
     "vlPromoDiscount":0.5,
     "minimalQty": 1,
     "name":"Milk Sale Value",
     "priority": 2
+  },
+  {
+    "productName": "Milk Promotion Unit",
+    "pcPromoDiscount":0.3,
+    "vlPromoDiscount":0.0,
+    "minimalQty": 1,
+    "name":"Milk Sale Pc",
+    "priority": 1
+  },
+  {
+    "productName": "Oranges Promotion Unit",
+    "pcPromoDiscount":0.3,
+    "vlPromoDiscount":0.0,
+    "minimalQty": 3,
+    "name":"Milk Sale Pc",
+    "priority": 1
+  },
+  {
+    "productName": "Apples Promotion Unit",
+    "pcPromoDiscount": 10,
+    "vlPromoDiscount": 0,
+    "minimalQty": 0,
+    "name":"Apples Sale",
+    "priority": 1
+  },
+  {
+    "productName": "Apples",
+    "pcPromoDiscount":0.1,
+    "vlPromoDiscount":0.0,
+    "minimalQty": 1,
+    "name":"Apple Sale Pc",
+    "priority": 1
   },
   {
     "productName": "Milk",

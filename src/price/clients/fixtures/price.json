@@ -1,5 +1,17 @@
 [
   {
+    "name": "Apples Price Unit",
+    "price": 2.50
+  },
+  {
+    "name": "Soup Price Unit",
+    "price": 5.50
+  },
+  {
+    "name": "Banana Price Unit",
+    "price": 4.00
+  },
+  {
     "name": "Apples",
     "price": 2.50
   },
@@ -10,5 +22,9 @@
   {
     "name": "Banana",
     "price": 4.00
+  },
+  {
+    "name": "Chocolate",
+    "price": 3.00
   }
 ]

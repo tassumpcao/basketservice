@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const router = require('router');
+const bodyParser = require('body-parser');
+const router = require('./router');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 
@@ -9,6 +10,8 @@ dotenv.config({
 });
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use('/api/v1', router);
 
