@@ -161,7 +161,7 @@ describe('Promotion Service Unit Test', () => {
   describe('Failure scenario', () => {
     it('Dont apply discount due to missing promotion', async () => {
       promoClient.mockImplementation(() => {
-        const getPromoForProduct = (item) => {
+        const getPromoForProduct = () => {
           return undefined;
         };
         return { getPromoForProduct };

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const currrencyService = require('../../../../src/price/services/currency');
 const currencyClient = require('../../../../src/price/clients/currency');
 
