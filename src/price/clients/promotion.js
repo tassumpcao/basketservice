@@ -1,4 +1,7 @@
+const pino = require('pino');
 const promotions = require('../../../src/price/clients/fixtures/promotions');
+
+const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 
 module.exports = () => {
 
@@ -17,6 +20,7 @@ module.exports = () => {
         promo = applyPriority(promo, promotion);
       }
     });
+    logger.debug(`promotionClient.getPromoForProduct - promotions set successfully: ${promo}`);
     return promo;
   };
   return { getPromoForProduct };

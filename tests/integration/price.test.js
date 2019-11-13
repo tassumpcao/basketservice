@@ -3,7 +3,7 @@ const app = require('../../src/app');
 
 /* eslint-disable no-unused-vars */
 /* eslint-disable jest/no-disabled-tests */
-describe('Price Integration Test', () => {
+describe.skip('Price Integration Test', () => {
   
 
   describe('Without discount and without conversion', () => {

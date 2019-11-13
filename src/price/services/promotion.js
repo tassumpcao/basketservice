@@ -1,11 +1,16 @@
+
+const pino = require('pino');
 /* eslint-disable max-statements */
 const promotionClient  = require('../clients/promotion');
+
+const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 
 module.exports = () => {
   
   const applyPromotionForProduct = (item) => {
     
     const promo = promotionClient().getPromoForProduct(item);
+    logger.debug(`promotionService.applyPromotionForProduct - promo retrieved successfully: ${promo}`);
     let promoItem;
     if (promo){
       promoItem = {};
@@ -38,6 +43,7 @@ module.exports = () => {
     order.discounts = discounts;
     order.discountAmt = discountAmt.toFixed(2);
     order.orderTotal = orderTotal.toFixed(2);
+    logger.debug(`promotionService.applyDiscount - promo updated successfully: ${order}`);
     return order;
   };
   

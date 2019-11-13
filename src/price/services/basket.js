@@ -1,6 +1,8 @@
 /* eslint-disable no-useless-catch */
+const pino = require('pino');
 const priceClient = require('../clients/price');
 
+const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 module.exports = () => {
@@ -20,6 +22,7 @@ module.exports = () => {
     };
  
     const productsQty = await groupBy(items);
+    logger.debug(`basketService.create - products groupBy successfully: ${productsQty}`);
     const dctProduction = [...new Set(items)];
     dctProduction.forEach((product) => {
       const price = priceClient().getPricesByName(product);
@@ -29,10 +32,9 @@ module.exports = () => {
         quantity: productsQty[product]
       });  
     });
+    logger.debug(`basketService.create - basket generated successfully: ${basket}`);
     return basket;
   };
   
-  
-
   return { create };
 };
