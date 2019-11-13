@@ -15,4 +15,8 @@ app.use(bodyParser.json());
 
 app.use('/api/v1', router);
 
+/**
+ * This is the app module responsible to handle the root /api/v1 route.
+ *
+ */
 module.exports = app;

@@ -4,7 +4,19 @@ const items = require('../../../src/price/clients/fixtures/price');
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 
+/**
+ * This is the module responsible to handle the access to the price data
+ *
+ */
 module.exports = () => {
+  
+  /**
+ * This is a function responsible to retrieve the price based on the product name
+ *
+ * @param {string} productName - currency
+ * @return {number} price
+ *
+ */
   const getPricesByName = (productName) => {
     let price;
     items.forEach((item) => {

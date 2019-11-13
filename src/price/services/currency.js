@@ -5,8 +5,20 @@ const currencyClient = require('../clients/currency');
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 
+/**
+ * This is the module responsible to handle all business logic of currency conversion.
+ *
+ */
 module.exports = () => {
   
+  /**
+ * This is a function responsible to convert the order to a new currency.
+ *
+ * @param {object} order - order object
+ * @param {string} currency - currency code
+ * @return {object} convertedOrder - Converted order
+ *
+ */
   const convert = async (order, currency) => {
     
     const rate = await currencyClient().getRateForCurrency(currency);

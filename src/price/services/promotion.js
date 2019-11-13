@@ -5,8 +5,19 @@ const promotionClient  = require('../clients/promotion');
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
 
+/**
+ * This is the module responsible to handle all business logic of promotions.
+ *
+ */
 module.exports = () => {
   
+  /**
+ * This is a function responsible to apply a promotion to an item from the basket.
+ *
+ * @param {object} item - item
+ * @return {object} promoItem - Promotion item
+ *
+ */
   const applyPromotionForProduct = (item) => {
     
     const promo = promotionClient().getPromoForProduct(item);
@@ -22,6 +33,14 @@ module.exports = () => {
     return promoItem;
   };
 
+
+  /**
+ * This is a function responsible to apply discouts for the whole basket.
+ *
+ * @param {object} basket - basket object
+ * @return {object} order - order object
+ *
+ */
   const applyDiscount = async (basket) => {
     const order = {};
     let subtotal = 0.0;

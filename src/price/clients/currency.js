@@ -3,9 +3,18 @@ const errors = require('errors');
 const axios = require('axios');
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'fatal' });
-
+/**
+ * This is the module responsible to handle external call to currency layer API.
+ *
+ */
 module.exports = () => {
-
+  /**
+ * This is a function responsible to connect to the external currency layer API and return the correct quote
+ *
+ * @param {string} currency - currency
+ * @return {number} currency
+ *
+ */
   const getRateForCurrency = (currency) => {
     const supportedCurr = ['EUR', 'USD', 'GBP'];
     
