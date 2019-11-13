@@ -6,7 +6,7 @@ It's a service that handles all logic to calculate the amount for a list of item
 Method: POST
 Endpoint: /api/v1/checkout/price
 Payload Example:
-{ “items": [“Apples", Milk", “Soup"] “currency" : “EUR" }
+{"items": ["Apples", "Apples", "Soup"],"currency": "EUR"}
 
 ## Scripts
 
