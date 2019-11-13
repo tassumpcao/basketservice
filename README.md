@@ -1,4 +1,4 @@
-# checkout-service
+# basket-service
 
 It's a service that handles all logic to calculate the amount for a list of items and convert to a currency using a API from currency layer.
 
