@@ -2,6 +2,12 @@
 
 It's a service that handles all logic to calculate the amount for a list of items and convert to a currency using a API from currency layer.
 
+## API Details:
+Method: POST
+Endpoint: /api/v1/checkout/price
+Payload Example:
+{ “items": [“Apples", Milk", “Soup"] “currency" : “EUR" }
+
 ## Scripts
 
 - `npm start` to start the service
@@ -16,3 +22,7 @@ It's a service that handles all logic to calculate the amount for a list of item
 For our service to work propertly in our local env it's necessary to configure the required environment vars. In order to simplify this `dotenv` module is been used.
 
 `Dontenv` needs a `.env` file with the env vars. Set the env variable for the correct environment defined on /config folder
+
+## Mocked Data
+
+Prices and promotions data are available in the /src/price/clients/fixtures
