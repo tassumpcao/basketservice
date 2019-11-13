@@ -4,15 +4,12 @@
   "description": "API to handle all logic related with the basket",
   "scripts": {
     "test": "NODE_ENV=development jest",
-    "test:integration": "NODE_ENV=development jest -t 'integration'",
-    "test:integration:watch": "npm run test:integration -- --watch",
-    "test-watch": "NODE_ENV=development jest --watch",
-    "start": "node -r dotenv/config src/server.js",
+    "test-integration": "NODE_ENV=development jest tests/integration",
+    "test-unit": "NODE_ENV=development jest tests/unit",
+    "test-unit-watch": "NODE_ENV=development jest tests-unit --watch",
+    "start": "NODE_ENV=development node -r dotenv/config src/server.js",
     "lint": "esw \"src/**/*.js\" \"tests/**/*.js\"",
     "lint-watch": "npm run lint -- -w --clear --color"
-  },
-  "husky": {
-    "hooks": {}
   },
   "repository": {
     "type": "git",
@@ -47,7 +44,6 @@
     "jest": "^24.9.0",
     "node-fixtures": "0.0.1",
     "node-mocks-http": "^1.8.0",
-    "supertest": "^4.0.2",
-    "husky": "^3.0.9"
+    "supertest": "^4.0.2"
   }
 }
