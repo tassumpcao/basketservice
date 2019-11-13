@@ -5,7 +5,7 @@ It's a service that handles all logic to calculate the amount for a list of item
 ## API Details:
 Method: POST
 
-Endpoint: /api/v1/checkout/price
+Resource: /api/v1/checkout/price
 
 Payload Example:
 
